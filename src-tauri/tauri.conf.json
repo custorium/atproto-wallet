@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ATProto wallet",
+  "version": "0.1.1",
+  "identifier": "eu.custorium.app.atproto-wallet",
+  "build": {
+    "beforeDevCommand": "pnpm start",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist/atproto-wallet/browser"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "atproto-wallet",
+        "width": 400,
+        "height": 600
+      }
+    ],
+    "security": {
+      "capabilities": ["mobile-capability"],
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "android": {
+        "versionCode": 2
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
