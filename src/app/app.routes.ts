@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { Shell } from './components/shell/shell'
 import { Identites } from './components/identites/identites'
+import { ScanQR } from './components/scan-qr/scan-qr'
 
 export const routes: Routes = [
     {
@@ -8,7 +9,8 @@ export const routes: Routes = [
         //canActivate...
         children:[
            {path:'',redirectTo:'identities',pathMatch:'full'},
-           {path:'identities',component:Identites}
+           {path:'identities',component:Identites},
+           {path:'scan',component:ScanQR}
         ] 
     }
 ];

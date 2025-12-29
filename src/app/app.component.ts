@@ -15,14 +15,18 @@ export class AppComponent {
     const startUrls = await getCurrent()
     if (startUrls) {
     }
-    await onOpenUrl((urls) => {
-      this.error = urls
-    })
+    try {
+      await onOpenUrl((urls) => {
+        console.log(urls)
+      })
+    } catch (e) {
+      this.error=e
+    }
   }
 
   greetingMessage = "";
   registered = false
-  error:any = ""
+  error: any = ""
 
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
