@@ -1,3 +1,5 @@
+// use tauri_plugin_deep_link::DeepLinkExt;
+
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -11,6 +13,10 @@ pub fn run() {
         .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_deep_link::init())
         .setup(move |_app| {
+            // #[cfg(desktop)] 
+            // {
+            //      _app.deep_link().register("atproto-wallet")?;
+            // }
             #[cfg(mobile)]
             {
                 _app.handle().plugin(tauri_plugin_biometric::init())?;

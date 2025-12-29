@@ -1,4 +1,5 @@
 {
+  "$schema": "../gen/schemas/mobile-schema.json",
   "identifier": "mobile-capability",
   "platforms": [
     "android",
@@ -8,9 +9,10 @@
     "main"
   ],
   "permissions": [
+    "core:event:default",
     "barcode-scanner:default",
     "store:default",
-    "deep-link:default",
-    "biometric:default"
+    "biometric:default",
+    "deep-link:default"
   ]
 }

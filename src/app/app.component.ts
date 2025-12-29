@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
+import { getCurrent, onOpenUrl, isRegistered } from '@tauri-apps/plugin-deep-link'
 
 @Component({
   selector: "app-root",
@@ -9,7 +10,19 @@ import { invoke } from "@tauri-apps/api/core";
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
+
+  async ngOnInit() {
+    const startUrls = await getCurrent()
+    if (startUrls) {
+    }
+    await onOpenUrl((urls) => {
+      this.error = urls
+    })
+  }
+
   greetingMessage = "";
+  registered = false
+  error:any = ""
 
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
@@ -19,4 +32,6 @@ export class AppComponent {
       this.greetingMessage = text;
     });
   }
+
+
 }
