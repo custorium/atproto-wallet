@@ -1,6 +1,19 @@
-<div class="container">
-<h1>My accounts</h1>
-<div class="new-entry">
-    <button mat-fab  [routerLink]='"/scan"' matTooltip="Add identity"><mat-icon>add</mat-icon></button>
+<div id="container">
+@if (identities)     {
+    @for(id of identities|async;track id.did) {
+    <mat-card class="id-card">
+        <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{id.alsoKnownAs}}</mat-card-title>
+              <mat-card-subtitle>{{id.did}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+    }
+}
+@else {
+    <div>Scan a QR code to add a identity</div>
+}
+<div id="scan-button">
+    <span><button mat-fab class="icon-button"  [routerLink]='"/scan"' matTooltip="Scan QR Code"><mat-icon class="icon">qr_code_scanner</mat-icon></button></span>
 </div>
 </div>

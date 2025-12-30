@@ -1,24 +1,30 @@
 import { Component,inject } from '@angular/core';
 import { scan, checkPermissions, PermissionState, Format, requestPermissions,cancel } from '@tauri-apps/plugin-barcode-scanner'
 import { Location } from '@angular/common'
+import { IdentityManager } from '../../services/identity'
 import { MatButtonModule } from '@angular/material/button'
+import { MatTooltipModule } from "@angular/material/tooltip"
 
 @Component({
   selector: 'app-scan-qr',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule,MatTooltipModule],
   templateUrl: './scan-qr.html',
   styleUrl: './scan-qr.scss'
 })
 export class ScanQR {
 
   location = inject(Location);
+  identityManager = inject(IdentityManager)
+  hasScanner = false
 
   async ngOnInit() {
     let permissions: PermissionState | null = null;
     try {
       permissions = await checkPermissions();
+      this.hasScanner=true
     } catch {
       permissions = null
+      this.hasScanner=false
     }
 
     if (permissions === "prompt" || permissions === "denied") {
@@ -28,13 +34,17 @@ export class ScanQR {
     if (permissions === "granted") {
       scan({ formats: [Format.QRCode], windowed: true }).then((res) => {
          console.log(res.content)
+         this.identityManager.AddIdentity({
+            did: "did:plc:asdasdasd",
+            alsoKnownAs:"at://willem.dobs.nl"
+         })
          this.location.back();
       })
     }
   }
 
   async cancelScan() {
-    await cancel();
+    if(this.hasScanner) await cancel();
     this.location.back();
   }
 }

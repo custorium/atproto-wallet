@@ -1,11 +1,27 @@
-.scanner {
+#scanner {
     height: 100vh;
-    width: 100vh;
+    width: 100%;
+    display: flex;
+    flex-flow: column
 }
 
-.back {
-   position: absolute;
-   top: 2em;
-   left: 2em;
-   color:white
+#frame-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    // background-color: #0000ffff;
+}
+
+#scan-frame {
+    width: 60vw;
+    height: 60vw;
+    // background-color: red;
+}
+
+#button-row {
+    padding: 0.5em;
+    text-align: center;
+    flex: 0 1 auto;
+    margin-bottom: 4em;
 }
