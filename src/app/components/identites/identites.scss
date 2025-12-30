@@ -26,9 +26,12 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+.avatar {
+  background-image: url('https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:q3enoeuha5b2zx4p4atxtb7x/bafkreiero7mh3x5fnegzkjfmkzteiiqookgr4rww7jevpfkvdz5v4zislu@jpeg');
   background-size: cover;
+  margin-bottom: 0;
+  width: 4em;
+  height: 4em;
 }
 
 .icon-button {
@@ -41,4 +44,12 @@ h1 {
     width: 2.5em;
     line-height: 2.2em;
     font-size: 3.2em;
+}
+
+mat-card-header {
+    padding-bottom: 1em;
+}
+
+mat-card-subtitle {
+    font-size: small;
 }

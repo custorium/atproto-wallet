@@ -37,7 +37,7 @@ export class ScanQR {
       scan({ formats: [Format.QRCode], windowed: true }).then((res) => {
          console.log(res.content)
          this.identityManager.AddIdentity({
-            did: "did:plc:asdasdasd",
+            did: "did:plc:q3enoeuha5b2zx4p4atxtb7x",
             alsoKnownAs:"at://willem.dobs.nl"
          })
          this.location.back();

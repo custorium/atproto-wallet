@@ -6,6 +6,7 @@ import { MatIcon } from '@angular/material/icon'
 import { MatTooltipModule } from "@angular/material/tooltip"
 import { MatCardModule } from '@angular/material/card';
 import { IdentityManager } from '../../services/identity'
+import { Identity } from '../../models/identity'
 
 @Component({
   selector: 'app-identites',
@@ -26,5 +27,13 @@ export class Identites {
   identities = this.identityManager.GetIdentities()
 
   async ngOnInit() {
+  }
+
+  handle(id:Identity):string {
+    if(id.alsoKnownAs.startsWith("at://")) {
+      return id.alsoKnownAs.substring(5)
+    } else {
+      return id.alsoKnownAs
+    }
   }
 }
