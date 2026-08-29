@@ -1,4 +1,4 @@
-# Custorium ATProto wallet
+# Custorium Atmosphere wallet
 
 This is very much a work in progress
 

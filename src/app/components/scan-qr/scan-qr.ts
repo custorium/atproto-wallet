@@ -4,12 +4,11 @@ import { Location } from '@angular/common'
 import { IdentityManager } from '../../services/identity'
 import { MatButtonModule } from '@angular/material/button'
 import { MatTooltipModule } from "@angular/material/tooltip"
-import { MatIcon } from "@angular/material/icon";
 
 
 @Component({
   selector: 'app-scan-qr',
-  imports: [MatButtonModule, MatTooltipModule, MatIcon],
+  imports: [MatButtonModule, MatTooltipModule],
   templateUrl: './scan-qr.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './scan-qr.scss'
