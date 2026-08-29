@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { scan, checkPermissions, PermissionState, Format, requestPermissions,cancel } from '@tauri-apps/plugin-barcode-scanner'
 import { Location } from '@angular/common'
 import { IdentityManager } from '../../services/identity'
@@ -11,6 +11,7 @@ import { MatIcon } from "@angular/material/icon";
   selector: 'app-scan-qr',
   imports: [MatButtonModule, MatTooltipModule, MatIcon],
   templateUrl: './scan-qr.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './scan-qr.scss'
 })
 export class ScanQR {

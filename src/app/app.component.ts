@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
 import { getCurrent, onOpenUrl, isRegistered } from '@tauri-apps/plugin-deep-link'
@@ -7,6 +7,7 @@ import { getCurrent, onOpenUrl, isRegistered } from '@tauri-apps/plugin-deep-lin
   selector: "app-root",
   imports: [RouterOutlet],
   templateUrl: "./app.component.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {

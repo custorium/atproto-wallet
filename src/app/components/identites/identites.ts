@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router'
 import { AsyncPipe } from '@angular/common'
 import { MatButtonModule, MatFabButton } from '@angular/material/button'
@@ -20,6 +20,7 @@ import { Identity } from '../../models/identity'
     AsyncPipe
   ],
   templateUrl: './identites.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './identites.scss'
 })
 export class Identites {
